@@ -1,0 +1,18 @@
+{
+  "name": "tutorial-demo",
+  "version": "1.0.0",
+  "description": "Demo for https://deepgram.com/learn/adding-live-captions-to-your-classroom-with-deepgram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@deepgram/sdk": "^2.2.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "socket.io": "^4.6.2"
+  }
+}
