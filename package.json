@@ -1,10 +1,11 @@
 {
   "name": "tutorial-demo",
   "version": "1.0.0",
-  "description": "Demo for https://deepgram.com/learn/adding-live-captions-to-your-classroom-with-deepgram",
+  "description": "Demo for https://deepgram.com/learn/classroom-captioner",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "npx nodemon index.js -e html,css,js"
   },
   "keywords": [],
   "author": "",
