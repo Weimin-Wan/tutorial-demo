@@ -20,7 +20,7 @@
   <footer>
     <span>Captions provided by</span>
     <a href="https://deepgram.com">
-      <img src="./deepgram.svg" alt="Deepgram" width="25px" height="25px">
+      <img src="./deepgram.svg" alt="Deepgram">
     </a>
   </footer>
 
@@ -34,10 +34,14 @@
     const socket = io()
     socket.emit('join', id)
 
-    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
-      if (!MediaRecorder.isTypeSupported('audio/webm')) return alert('Browser not supported')
+    navigator.mediaDevices.getUserMedia({ audio: true })
+    .then((stream) => {
+      if (!MediaRecorder.isTypeSupported('audio/webm')) {
+        return alert('Browser not supported')
+      } 
       mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' })
-    }).catch(() => alert('You must provide access to the microphone'))
+    })
+    .catch(() => alert('You must provide access to the microphone'))
 
     document.querySelector('form').addEventListener('submit', async event => {
       event.preventDefault()
@@ -47,7 +51,9 @@
         method: 'POST',
         body: JSON.stringify({ id, key }),
         headers: { 'Content-Type': 'application/json' }
-      }).then(r => r.json()).catch(error => alert(error))
+      })
+      .then(r => r.json())
+      .catch(error => alert(error))
 
       if(resp.error) return alert(resp.error)
 
